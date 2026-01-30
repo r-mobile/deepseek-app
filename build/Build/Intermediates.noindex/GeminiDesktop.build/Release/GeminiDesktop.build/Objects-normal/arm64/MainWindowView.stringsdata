@@ -1,0 +1,24 @@
+{
+  "source": "/Users/rmarchenko/Projects/gemini-desktop-mac/Views/MainWindowView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Back",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 30
+        }
+      },
+      {
+        "comment": "",
+        "key": "Minimize to Prompt Panel",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 44
+        }
+      }
+    ]
+  },
+  "version": 1
+}
