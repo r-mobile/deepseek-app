@@ -97,7 +97,7 @@ struct GeminiDesktopApp: App {
         MenuBarExtra {
             MenuBarView(coordinator: $coordinator)
         } label: {
-            Image(systemName: Constants.menuBarIcon)
+            Image("MenuBarIcon")
                 .onAppear {
                     let hideWindowAtLaunch = UserDefaults.standard.bool(forKey: UserDefaultsKeys.hideWindowAtLaunch.rawValue)
                     let hideDockIcon = UserDefaults.standard.bool(forKey: UserDefaultsKeys.hideDockIcon.rawValue)
@@ -151,7 +151,6 @@ extension GeminiDesktopApp {
                 return NSColor(red: 238.0/255.0, green: 241.0/255.0, blue: 247.0/255.0, alpha: 1.0)
             }
         }
-        static let menuBarIcon = "sparkle"
 
         // Timing
         static let hideWindowDelay: TimeInterval = 0.1
