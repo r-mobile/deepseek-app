@@ -1,0 +1,24 @@
+{
+  "source": "/Users/rmarchenko/Projects/kimi-app/Views/LoadingOverlayView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Switching to %@",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 47
+        }
+      },
+      {
+        "comment": "",
+        "key": "Loading your conversation...",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 51
+        }
+      }
+    ]
+  },
+  "version": 1
+}

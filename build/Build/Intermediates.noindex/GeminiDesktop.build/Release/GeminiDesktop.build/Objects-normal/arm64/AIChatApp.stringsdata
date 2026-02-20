@@ -1,0 +1,64 @@
+{
+  "source": "/Users/rmarchenko/Projects/kimi-app/App/AIChatApp.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Back",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 30
+        }
+      },
+      {
+        "comment": "",
+        "key": "Forward",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 38
+        }
+      },
+      {
+        "comment": "",
+        "key": "Go Home",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 46
+        }
+      },
+      {
+        "comment": "",
+        "key": "Reload Page",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 55
+        }
+      },
+      {
+        "comment": "",
+        "key": "Zoom In",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 64
+        }
+      },
+      {
+        "comment": "",
+        "key": "Zoom Out",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 71
+        }
+      },
+      {
+        "comment": "",
+        "key": "Actual Size",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 78
+        }
+      }
+    ]
+  },
+  "version": 1
+}

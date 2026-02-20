@@ -1,16 +1,15 @@
 //
-//  ChatBarContent.swift
-//  GeminiDesktop
-//
-//  Created by alexcding on 2025-12-13.
+//  ChatBarView.swift
+//  AIChat Desktop
 //
 
 import SwiftUI
 import WebKit
 
 struct ChatBarView: View {
-    let webView: WKWebView
-    let onExpandToMain: () -> Void
+    @State private var isLoading = false
+    @State private var loadingProvider: AIProvider?
+    @State private var currentProvider: AIProvider = AppCoordinator.shared.currentProvider
 
     /// Calculate button offset based on screen height
     /// MacBook Air 13" (~900pt): (-6, -2), 1080p (1080pt): (-4, 0)
@@ -25,19 +24,60 @@ struct ChatBarView: View {
 
     var body: some View {
         ZStack(alignment: .topLeading) {
-            GeminiWebView(webView: webView)
-
-            Button(action: onExpandToMain) {
-                Image(systemName: "arrow.up.left.and.arrow.down.right")
-                    .font(.system(size: 14, weight: .medium))
-                    .foregroundStyle(.secondary)
-                    .frame(width: 38, height: 38)
-                    .background(.ultraThinMaterial, in: Circle())
-                    .contentShape(Circle())
+            // Используем id для переключения между WebView разных провайдеров
+            AIWebView(webView: AppCoordinator.shared.currentWebView)
+                .id(currentProvider)
+            
+            // Loading overlay
+            if let provider = loadingProvider, isLoading {
+                LoadingOverlayView(provider: provider)
+                    .transition(.opacity.animation(.easeInOut(duration: 0.2)))
             }
-            .buttonStyle(.plain)
-            .padding(16)
-            .offset(buttonOffset)
+
+            // Expand button (скрыт во время загрузки)
+            if !isLoading {
+                Button(action: {
+                    AppCoordinator.shared.expandToMainWindow()
+                }) {
+                    Image(systemName: "arrow.up.left.and.arrow.down.right")
+                        .font(.system(size: 14, weight: .medium))
+                        .foregroundStyle(.secondary)
+                        .frame(width: 38, height: 38)
+                        .background(.ultraThinMaterial, in: Circle())
+                        .contentShape(Circle())
+                }
+                .buttonStyle(.plain)
+                .padding(16)
+                .offset(buttonOffset)
+                .transition(.opacity.animation(.easeInOut(duration: 0.15)))
+            }
+        }
+        .onAppear {
+            // Подписываемся на уведомления об изменении провайдера
+            NotificationCenter.default.addObserver(
+                forName: .providerChanged,
+                object: nil,
+                queue: .main
+            ) { notification in
+                if let newProvider = notification.object as? AIProvider {
+                    if newProvider != currentProvider {
+                        // Show loading for new provider
+                        loadingProvider = newProvider
+                        withAnimation(.easeInOut(duration: 0.15)) {
+                            isLoading = true
+                        }
+                        
+                        // Hide loading after a short delay
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            withAnimation(.easeInOut(duration: 0.2)) {
+                                isLoading = false
+                            }
+                        }
+                        
+                        currentProvider = newProvider
+                    }
+                }
+            }
         }
     }
 }

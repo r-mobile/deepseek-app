@@ -1,0 +1,24 @@
+{
+  "source": "/Users/rmarchenko/Projects/kimi-app/Views/MainWindowView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Back",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 80
+        }
+      },
+      {
+        "comment": "",
+        "key": "Minimize to Prompt Panel",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 94
+        }
+      }
+    ]
+  },
+  "version": 1
+}

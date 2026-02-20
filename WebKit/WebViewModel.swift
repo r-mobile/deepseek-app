@@ -1,8 +1,6 @@
 //
 //  WebViewModel.swift
-//  GeminiDesktop
-//
-//  Created by alexcding on 2025-12-15.
+//  AIChat Desktop
 //
 
 import WebKit
@@ -17,27 +15,29 @@ class ConsoleLogHandler: NSObject, WKScriptMessageHandler {
     }
 }
 
-/// Observable wrapper around WKWebView with Gemini-specific functionality
+/// Observable wrapper around WKWebView with multi-AI provider support
 @Observable
 class WebViewModel {
 
     // MARK: - Constants
 
-    static let geminiURL = URL(string: "https://chat.deepseek.com")!
     static let defaultPageZoom: Double = 1.0
-
-    private static let geminiHost = "chat.deepseek.com"
-    private static let geminiAppPath = "/"
-    private static let userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15"
     private static let minZoom: Double = 0.6
     private static let maxZoom: Double = 1.4
+    private static let userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15"
 
     // MARK: - Public Properties
 
-    let wkWebView: WKWebView
+    private(set) var webViews: [AIProvider: WKWebView] = [:]
     private(set) var canGoBack: Bool = false
     private(set) var canGoForward: Bool = false
     private(set) var isAtHome: Bool = true
+    private(set) var currentProvider: AIProvider
+
+    /// Returns the current active WebView
+    var currentWebView: WKWebView {
+        webViews[currentProvider] ?? createWebView(for: currentProvider)
+    }
 
     // MARK: - Private Properties
 
@@ -45,13 +45,42 @@ class WebViewModel {
     private var forwardObserver: NSKeyValueObservation?
     private var urlObserver: NSKeyValueObservation?
     private let consoleLogHandler = ConsoleLogHandler()
+    private var observers: [AIProvider: [NSKeyValueObservation]] = [:]
 
     // MARK: - Initialization
 
-    init() {
-        self.wkWebView = Self.createWebView(consoleLogHandler: consoleLogHandler)
-        setupObservers()
+    init(provider: AIProvider) {
+        self.currentProvider = provider
+        
+        // Create WebViews for all providers upfront
+        for aiProvider in AIProvider.allCases {
+            let webView = createWebView(for: aiProvider)
+            webViews[aiProvider] = webView
+            setupObservers(for: aiProvider, webView: webView)
+        }
+        
+        // Load initial provider
         loadHome()
+    }
+
+    // MARK: - Provider Switching
+
+    func switchToProvider(_ newProvider: AIProvider) {
+        guard newProvider != currentProvider else { return }
+        
+        // Save zoom level for current provider
+        let currentZoom = Double(webViews[currentProvider]?.pageZoom ?? CGFloat(Self.defaultPageZoom))
+        UserDefaults.standard.set(currentZoom, forKey: "\(currentProvider.rawValue)_zoom")
+        
+        // Switch to new provider
+        currentProvider = newProvider
+        
+        // Restore zoom level for new provider
+        let savedZoom = UserDefaults.standard.double(forKey: "\(newProvider.rawValue)_zoom")
+        webViews[newProvider]?.pageZoom = savedZoom > 0 ? savedZoom : Self.defaultPageZoom
+        
+        // Update navigation state for new provider
+        updateNavigationState(for: newProvider)
     }
 
     // MARK: - Navigation
@@ -59,31 +88,38 @@ class WebViewModel {
     func loadHome() {
         isAtHome = true
         canGoBack = false
-        wkWebView.load(URLRequest(url: Self.geminiURL))
+        
+        // Load home only if not already loaded
+        let webView = webViews[currentProvider]!
+        if webView.url == nil || !currentProvider.trustedHosts.contains(where: { webView.url?.host?.contains($0) ?? false }) {
+            webView.load(URLRequest(url: currentProvider.url))
+        }
     }
 
     func goBack() {
         isAtHome = false
-        wkWebView.goBack()
+        webViews[currentProvider]?.goBack()
     }
 
     func goForward() {
-        wkWebView.goForward()
+        webViews[currentProvider]?.goForward()
     }
 
     func reload() {
-        wkWebView.reload()
+        webViews[currentProvider]?.reload()
     }
 
     // MARK: - Zoom
 
     func zoomIn() {
-        let newZoom = min((wkWebView.pageZoom * 100 + 1).rounded() / 100, Self.maxZoom)
+        guard let webView = webViews[currentProvider] else { return }
+        let newZoom = min((webView.pageZoom * 100 + 1).rounded() / 100, Self.maxZoom)
         setZoom(newZoom)
     }
 
     func zoomOut() {
-        let newZoom = max((wkWebView.pageZoom * 100 - 1).rounded() / 100, Self.minZoom)
+        guard let webView = webViews[currentProvider] else { return }
+        let newZoom = max((webView.pageZoom * 100 - 1).rounded() / 100, Self.minZoom)
         setZoom(newZoom)
     }
 
@@ -92,14 +128,15 @@ class WebViewModel {
     }
 
     private func setZoom(_ zoom: Double) {
-        wkWebView.pageZoom = zoom
-        UserDefaults.standard.set(zoom, forKey: UserDefaultsKeys.pageZoom.rawValue)
+        webViews[currentProvider]?.pageZoom = zoom
+        UserDefaults.standard.set(zoom, forKey: "\(currentProvider.rawValue)_zoom")
     }
 
     // MARK: - Private Setup
 
-    private static func createWebView(consoleLogHandler: ConsoleLogHandler) -> WKWebView {
+    private func createWebView(for provider: AIProvider) -> WKWebView {
         let configuration = WKWebViewConfiguration()
+        // Use default data store to share cookies/sessions between providers
         configuration.websiteDataStore = .default()
         configuration.defaultWebpagePreferences.allowsContentJavaScript = true
         configuration.mediaTypesRequiringUserActionForPlayback = []
@@ -117,38 +154,43 @@ class WebViewModel {
         let webView = WKWebView(frame: .zero, configuration: configuration)
         webView.allowsBackForwardNavigationGestures = true
         webView.allowsLinkPreview = true
-        webView.customUserAgent = userAgent
+        webView.customUserAgent = Self.userAgent
 
-        let savedZoom = UserDefaults.standard.double(forKey: UserDefaultsKeys.pageZoom.rawValue)
-        webView.pageZoom = savedZoom > 0 ? savedZoom : defaultPageZoom
+        // Set provider-specific zoom
+        let savedZoom = UserDefaults.standard.double(forKey: "\(provider.rawValue)_zoom")
+        webView.pageZoom = savedZoom > 0 ? savedZoom : Self.defaultPageZoom
+
+        // Load initial URL if needed
+        webView.load(URLRequest(url: provider.url))
 
         return webView
     }
 
-    private func setupObservers() {
-        backObserver = wkWebView.observe(\.canGoBack, options: [.new, .initial]) { [weak self] webView, _ in
+    private func setupObservers(for provider: AIProvider, webView: WKWebView) {
+        let backObs = webView.observe(\.canGoBack, options: [.new, .initial]) { [weak self] webView, _ in
             DispatchQueue.main.async {
-                guard let self = self else { return }
+                guard let self = self, self.currentProvider == provider else { return }
                 self.canGoBack = !self.isAtHome && webView.canGoBack
             }
         }
 
-        forwardObserver = wkWebView.observe(\.canGoForward, options: [.new, .initial]) { [weak self] webView, _ in
+        let forwardObs = webView.observe(\.canGoForward, options: [.new, .initial]) { [weak self] webView, _ in
             DispatchQueue.main.async {
-                guard let self = self else { return }
+                guard let self = self, self.currentProvider == provider else { return }
                 self.canGoForward = webView.canGoForward
             }
         }
 
-        urlObserver = wkWebView.observe(\.url, options: .new) { [weak self] webView, _ in
+        let urlObs = webView.observe(\.url, options: .new) { [weak self] webView, _ in
             DispatchQueue.main.async {
-                guard let self = self else { return }
+                guard let self = self, self.currentProvider == provider else { return }
                 guard let currentURL = webView.url else { return }
 
-                let isDeepSeekApp = currentURL.host == Self.geminiHost &&
-                                    currentURL.path.hasPrefix(Self.geminiAppPath)
+                let isProviderApp = provider.trustedHosts.contains { host in
+                    currentURL.host?.contains(host) ?? false
+                }
 
-                if isDeepSeekApp {
+                if isProviderApp {
                     self.isAtHome = true
                     self.canGoBack = false
                 } else {
@@ -156,6 +198,22 @@ class WebViewModel {
                     self.canGoBack = webView.canGoBack
                 }
             }
+        }
+
+        observers[provider] = [backObs, forwardObs, urlObs]
+    }
+
+    private func updateNavigationState(for provider: AIProvider) {
+        guard let webView = webViews[provider] else { return }
+        
+        canGoBack = webView.canGoBack
+        canGoForward = webView.canGoForward
+        
+        if let currentURL = webView.url {
+            let isProviderApp = provider.trustedHosts.contains { host in
+                currentURL.host?.contains(host) ?? false
+            }
+            isAtHome = isProviderApp
         }
     }
 }

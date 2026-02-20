@@ -5,12 +5,12 @@
 
 set -e
 
-APP_NAME="DeepSeek App"
+APP_NAME="AiApp"
 PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 APP_PATH="${PROJECT_DIR}/build/Build/Products/Release/${APP_NAME}.app"
 OUTPUT_DIR="${PROJECT_DIR}/dist"
-DMG_FINAL="${OUTPUT_DIR}/DeepSeekApp.dmg"
-VOLUME_NAME="DeepSeek App"
+DMG_FINAL="${OUTPUT_DIR}/AiApp.dmg"
+VOLUME_NAME="AiApp"
 
 echo "Creating DMG for ${APP_NAME}..."
 

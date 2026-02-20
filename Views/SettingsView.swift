@@ -4,10 +4,10 @@ import WebKit
 import ServiceManagement
 
 struct SettingsView: View {
-    @Binding var coordinator: AppCoordinator
     @AppStorage(UserDefaultsKeys.pageZoom.rawValue) private var pageZoom: Double = Constants.defaultPageZoom
     @AppStorage(UserDefaultsKeys.hideWindowAtLaunch.rawValue) private var hideWindowAtLaunch: Bool = false
     @AppStorage(UserDefaultsKeys.hideDockIcon.rawValue) private var hideDockIcon: Bool = false
+    @State private var visibleProviders: Set<AIProvider> = Set(AIProvider.allCases)
 
     @State private var showingResetAlert = false
     @State private var isClearing = false
@@ -28,6 +28,30 @@ struct SettingsView: View {
                         NSApp.setActivationPolicy(newValue ? .accessory : .regular)
                     }
             }
+            Section("Visible Providers") {
+                ForEach(AIProvider.allCases) { provider in
+                    HStack {
+                        Image(systemName: provider.icon)
+                            .foregroundColor(provider.color)
+                            .frame(width: 20)
+                        Text(provider.displayName)
+                        Spacer()
+                        Toggle("", isOn: Binding(
+                            get: { visibleProviders.contains(provider) },
+                            set: { isVisible in
+                                if isVisible {
+                                    visibleProviders.insert(provider)
+                                } else {
+                                    visibleProviders.remove(provider)
+                                }
+                                saveVisibleProviders()
+                            }
+                        ))
+                        .toggleStyle(.switch)
+                        .labelsHidden()
+                    }
+                }
+            }
             Section("Keyboard Shortcuts") {
                 HStack {
                     Text("Toggle Chat Bar:")
@@ -43,7 +67,7 @@ struct SettingsView: View {
                             value: $pageZoom,
                             in: Constants.minPageZoom...Constants.maxPageZoom,
                             step: Constants.pageZoomStep)
-                        .onChange(of: pageZoom) { coordinator.webViewModel.wkWebView.pageZoom = $1 }
+                        .onChange(of: pageZoom) { AppCoordinator.shared.currentWebView.pageZoom = CGFloat($1) }
                         .labelsHidden()
                 }
             }
@@ -62,11 +86,14 @@ struct SettingsView: View {
             }
         }
         .formStyle(.grouped)
+        .onAppear {
+            loadVisibleProviders()
+        }
         .alert("Reset Website Data?", isPresented: $showingResetAlert) {
             Button("Cancel", role: .cancel) { }
             Button("Reset", role: .destructive) { clearWebsiteData() }
         } message: {
-            Text("This will clear all cookies, cache, and login sessions. You will need to sign in to DeepSeek again.")
+            Text("This will clear all cookies, cache, and login sessions for all AI providers. You will need to sign in again.")
         }
     }
 
@@ -79,6 +106,22 @@ struct SettingsView: View {
                 DispatchQueue.main.async { isClearing = false }
             }
         }
+    }
+    
+    private func loadVisibleProviders() {
+        if let savedVisible = UserDefaults.standard.stringArray(forKey: UserDefaultsKeys.visibleProviders.rawValue) {
+            visibleProviders = Set(savedVisible.compactMap { AIProvider(rawValue: $0) })
+        } else {
+            visibleProviders = Set(AIProvider.allCases)
+        }
+    }
+    
+    private func saveVisibleProviders() {
+        let rawValues = Array(visibleProviders.map { $0.rawValue })
+        UserDefaults.standard.set(rawValues, forKey: UserDefaultsKeys.visibleProviders.rawValue)
+        
+        // Notify other views that visible providers changed
+        NotificationCenter.default.post(name: Notification.Name("VisibleProvidersChanged"), object: nil)
     }
 }
 

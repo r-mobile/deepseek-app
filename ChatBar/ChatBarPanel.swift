@@ -1,8 +1,6 @@
 //
-//  ChatBar.swift
-//  GeminiDesktop
-//
-//  Created by alexcding on 2025-12-13.
+//  ChatBarPanel.swift
+//  AIChat Desktop
 //
 
 import SwiftUI
@@ -35,37 +33,18 @@ class ChatBarPanel: NSPanel, NSWindowDelegate {
     private var isExpanded = false
     private var pollingTimer: Timer?
     private weak var webView: WKWebView?
+    private var hostingView: NSHostingView<ChatBarView>?
 
-    // Returns true if in a conversation (not on start page)
-    private let checkConversationScript = """
-        (function() {
-            const scroller = document.querySelector('infinite-scroller[data-test-id="chat-history-container"]');
-            if (!scroller) { return false; }
-            const hasResponseContainer = scroller.querySelector('response-container') !== null;
-            const hasRatingButtons = scroller.querySelector('[aria-label="Good response"], [aria-label="Bad response"]') !== null;
-            return hasResponseContainer || hasRatingButtons;
-        })();
-        """
-
-    // JavaScript to focus the input field
-    private let focusInputScript = """
-        (function() {
-            const input = document.querySelector('rich-textarea[aria-label="Enter a prompt here"]') ||
-                          document.querySelector('[contenteditable="true"]') ||
-                          document.querySelector('textarea');
-            if (input) {
-                input.focus();
-                return true;
-            }
-            return false;
-        })();
-        """
-
-    init(contentView: NSView) {
+    init() {
         let width = UserDefaults.standard.double(forKey: UserDefaultsKeys.panelWidth.rawValue)
         let height = UserDefaults.standard.double(forKey: UserDefaultsKeys.panelHeight.rawValue)
         let initWidth = width > 0 ? width : Constants.defaultWidth
         let initHeight = height > 0 ? height : Constants.defaultHeight
+
+        // Create the SwiftUI view
+        let contentView = ChatBarView()
+        let hostingView = NSHostingView(rootView: contentView)
+        self.hostingView = hostingView
 
         super.init(
             contentRect: NSRect(x: 0, y: 0, width: initWidth, height: initHeight),
@@ -78,12 +57,13 @@ class ChatBarPanel: NSPanel, NSWindowDelegate {
             defer: false
         )
 
-        self.contentView = contentView
+        self.contentView = hostingView
         self.delegate = self
 
         configureWindow()
         configureAppearance()
 
+        // Find WebView after a delay
         DispatchQueue.main.asyncAfter(deadline: .now() + Constants.webViewSearchDelay) { [weak self] in
             guard let self = self, let content = self.contentView else { return }
             self.findWebView(in: content)
@@ -153,7 +133,7 @@ class ChatBarPanel: NSPanel, NSWindowDelegate {
         guard !isExpanded else { return }
         guard let webView = webView else { return }
 
-        webView.evaluateJavaScript(checkConversationScript) { [weak self] result, _ in
+        webView.evaluateJavaScript(UserScripts.checkConversationScript) { [weak self] result, _ in
             if let inConversation = result as? Bool, inConversation {
                 DispatchQueue.main.async {
                     self?.expandToNormalSize()
@@ -215,7 +195,7 @@ class ChatBarPanel: NSPanel, NSWindowDelegate {
         // Focus the input field
         focusInput()
 
-        webView.evaluateJavaScript(checkConversationScript) { [weak self] result, _ in
+        webView.evaluateJavaScript(UserScripts.checkConversationScript) { [weak self] result, _ in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 if let inConversation = result as? Bool, inConversation {
@@ -236,7 +216,7 @@ class ChatBarPanel: NSPanel, NSWindowDelegate {
     /// Focus the input field in the WebView
     func focusInput() {
         guard let webView = webView else { return }
-        webView.evaluateJavaScript(focusInputScript, completionHandler: nil)
+        webView.evaluateJavaScript(UserScripts.focusInputScript, completionHandler: nil)
     }
 
     deinit {

@@ -1,0 +1,189 @@
+{
+  "" : {
+    "diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/GeminiDesktop-primary.dia",
+    "emit-module-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/GeminiDesktop-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/GeminiDesktop-primary-emit-module.dia",
+    "pch" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/GeminiDesktop-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/GeminiDesktop-primary.swiftdeps"
+  },
+  "/Users/rmarchenko/Projects/kimi-app/App/AIChatApp.swift" : {
+    "const-values" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIChatApp.swiftconstvalues",
+    "dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIChatApp.d",
+    "diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIChatApp.dia",
+    "index-unit-output-path" : "/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIChatApp.o",
+    "llvm-bc" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIChatApp.bc",
+    "object" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIChatApp.o",
+    "swift-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIChatApp.swiftdeps",
+    "swiftmodule" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIChatApp~partial.swiftmodule"
+  },
+  "/Users/rmarchenko/Projects/kimi-app/App/AppDelegate.swift" : {
+    "const-values" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AppDelegate.swiftconstvalues",
+    "dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AppDelegate.d",
+    "diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AppDelegate.dia",
+    "index-unit-output-path" : "/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AppDelegate.o",
+    "llvm-bc" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AppDelegate.bc",
+    "object" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AppDelegate.o",
+    "swift-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AppDelegate.swiftdeps",
+    "swiftmodule" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AppDelegate~partial.swiftmodule"
+  },
+  "/Users/rmarchenko/Projects/kimi-app/ChatBar/ChatBarPanel.swift" : {
+    "const-values" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ChatBarPanel.swiftconstvalues",
+    "dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ChatBarPanel.d",
+    "diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ChatBarPanel.dia",
+    "index-unit-output-path" : "/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ChatBarPanel.o",
+    "llvm-bc" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ChatBarPanel.bc",
+    "object" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ChatBarPanel.o",
+    "swift-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ChatBarPanel.swiftdeps",
+    "swiftmodule" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ChatBarPanel~partial.swiftmodule"
+  },
+  "/Users/rmarchenko/Projects/kimi-app/ChatBar/ChatBarView.swift" : {
+    "const-values" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ChatBarView.swiftconstvalues",
+    "dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ChatBarView.d",
+    "diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ChatBarView.dia",
+    "index-unit-output-path" : "/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ChatBarView.o",
+    "llvm-bc" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ChatBarView.bc",
+    "object" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ChatBarView.o",
+    "swift-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ChatBarView.swiftdeps",
+    "swiftmodule" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ChatBarView~partial.swiftmodule"
+  },
+  "/Users/rmarchenko/Projects/kimi-app/Coordinators/AppCoordinator.swift" : {
+    "const-values" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AppCoordinator.swiftconstvalues",
+    "dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AppCoordinator.d",
+    "diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AppCoordinator.dia",
+    "index-unit-output-path" : "/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AppCoordinator.o",
+    "llvm-bc" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AppCoordinator.bc",
+    "object" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AppCoordinator.o",
+    "swift-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AppCoordinator.swiftdeps",
+    "swiftmodule" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AppCoordinator~partial.swiftmodule"
+  },
+  "/Users/rmarchenko/Projects/kimi-app/Models/AIProvider.swift" : {
+    "const-values" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIProvider.swiftconstvalues",
+    "dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIProvider.d",
+    "diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIProvider.dia",
+    "index-unit-output-path" : "/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIProvider.o",
+    "llvm-bc" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIProvider.bc",
+    "object" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIProvider.o",
+    "swift-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIProvider.swiftdeps",
+    "swiftmodule" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIProvider~partial.swiftmodule"
+  },
+  "/Users/rmarchenko/Projects/kimi-app/Models/AIProviderManager.swift" : {
+    "const-values" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIProviderManager.swiftconstvalues",
+    "dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIProviderManager.d",
+    "diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIProviderManager.dia",
+    "index-unit-output-path" : "/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIProviderManager.o",
+    "llvm-bc" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIProviderManager.bc",
+    "object" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIProviderManager.o",
+    "swift-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIProviderManager.swiftdeps",
+    "swiftmodule" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIProviderManager~partial.swiftmodule"
+  },
+  "/Users/rmarchenko/Projects/kimi-app/Utils/KeyboardShortcuts+Definitions.swift" : {
+    "const-values" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/KeyboardShortcuts+Definitions.swiftconstvalues",
+    "dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/KeyboardShortcuts+Definitions.d",
+    "diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/KeyboardShortcuts+Definitions.dia",
+    "index-unit-output-path" : "/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/KeyboardShortcuts+Definitions.o",
+    "llvm-bc" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/KeyboardShortcuts+Definitions.bc",
+    "object" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/KeyboardShortcuts+Definitions.o",
+    "swift-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/KeyboardShortcuts+Definitions.swiftdeps",
+    "swiftmodule" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/KeyboardShortcuts+Definitions~partial.swiftmodule"
+  },
+  "/Users/rmarchenko/Projects/kimi-app/Utils/NSScreen+Extensions.swift" : {
+    "const-values" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/NSScreen+Extensions.swiftconstvalues",
+    "dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/NSScreen+Extensions.d",
+    "diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/NSScreen+Extensions.dia",
+    "index-unit-output-path" : "/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/NSScreen+Extensions.o",
+    "llvm-bc" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/NSScreen+Extensions.bc",
+    "object" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/NSScreen+Extensions.o",
+    "swift-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/NSScreen+Extensions.swiftdeps",
+    "swiftmodule" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/NSScreen+Extensions~partial.swiftmodule"
+  },
+  "/Users/rmarchenko/Projects/kimi-app/Utils/UserDefaultsKeys.swift" : {
+    "const-values" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/UserDefaultsKeys.swiftconstvalues",
+    "dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/UserDefaultsKeys.d",
+    "diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/UserDefaultsKeys.dia",
+    "index-unit-output-path" : "/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/UserDefaultsKeys.o",
+    "llvm-bc" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/UserDefaultsKeys.bc",
+    "object" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/UserDefaultsKeys.o",
+    "swift-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/UserDefaultsKeys.swiftdeps",
+    "swiftmodule" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/UserDefaultsKeys~partial.swiftmodule"
+  },
+  "/Users/rmarchenko/Projects/kimi-app/Views/LoadingOverlayView.swift" : {
+    "const-values" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/LoadingOverlayView.swiftconstvalues",
+    "dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/LoadingOverlayView.d",
+    "diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/LoadingOverlayView.dia",
+    "index-unit-output-path" : "/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/LoadingOverlayView.o",
+    "llvm-bc" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/LoadingOverlayView.bc",
+    "object" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/LoadingOverlayView.o",
+    "swift-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/LoadingOverlayView.swiftdeps",
+    "swiftmodule" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/LoadingOverlayView~partial.swiftmodule"
+  },
+  "/Users/rmarchenko/Projects/kimi-app/Views/MainWindowView.swift" : {
+    "const-values" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/MainWindowView.swiftconstvalues",
+    "dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/MainWindowView.d",
+    "diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/MainWindowView.dia",
+    "index-unit-output-path" : "/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/MainWindowView.o",
+    "llvm-bc" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/MainWindowView.bc",
+    "object" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/MainWindowView.o",
+    "swift-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/MainWindowView.swiftdeps",
+    "swiftmodule" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/MainWindowView~partial.swiftmodule"
+  },
+  "/Users/rmarchenko/Projects/kimi-app/Views/MenuBarView.swift" : {
+    "const-values" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/MenuBarView.swiftconstvalues",
+    "dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/MenuBarView.d",
+    "diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/MenuBarView.dia",
+    "index-unit-output-path" : "/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/MenuBarView.o",
+    "llvm-bc" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/MenuBarView.bc",
+    "object" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/MenuBarView.o",
+    "swift-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/MenuBarView.swiftdeps",
+    "swiftmodule" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/MenuBarView~partial.swiftmodule"
+  },
+  "/Users/rmarchenko/Projects/kimi-app/Views/ProviderSelectorView.swift" : {
+    "const-values" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ProviderSelectorView.swiftconstvalues",
+    "dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ProviderSelectorView.d",
+    "diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ProviderSelectorView.dia",
+    "index-unit-output-path" : "/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ProviderSelectorView.o",
+    "llvm-bc" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ProviderSelectorView.bc",
+    "object" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ProviderSelectorView.o",
+    "swift-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ProviderSelectorView.swiftdeps",
+    "swiftmodule" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/ProviderSelectorView~partial.swiftmodule"
+  },
+  "/Users/rmarchenko/Projects/kimi-app/Views/SettingsView.swift" : {
+    "const-values" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/SettingsView.swiftconstvalues",
+    "dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/SettingsView.d",
+    "diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/SettingsView.dia",
+    "index-unit-output-path" : "/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/SettingsView.o",
+    "llvm-bc" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/SettingsView.bc",
+    "object" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/SettingsView.o",
+    "swift-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/SettingsView.swiftdeps",
+    "swiftmodule" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/SettingsView~partial.swiftmodule"
+  },
+  "/Users/rmarchenko/Projects/kimi-app/WebKit/AIWebView.swift" : {
+    "const-values" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIWebView.swiftconstvalues",
+    "dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIWebView.d",
+    "diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIWebView.dia",
+    "index-unit-output-path" : "/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIWebView.o",
+    "llvm-bc" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIWebView.bc",
+    "object" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIWebView.o",
+    "swift-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIWebView.swiftdeps",
+    "swiftmodule" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/AIWebView~partial.swiftmodule"
+  },
+  "/Users/rmarchenko/Projects/kimi-app/WebKit/UserScripts.swift" : {
+    "const-values" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/UserScripts.swiftconstvalues",
+    "dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/UserScripts.d",
+    "diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/UserScripts.dia",
+    "index-unit-output-path" : "/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/UserScripts.o",
+    "llvm-bc" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/UserScripts.bc",
+    "object" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/UserScripts.o",
+    "swift-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/UserScripts.swiftdeps",
+    "swiftmodule" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/UserScripts~partial.swiftmodule"
+  },
+  "/Users/rmarchenko/Projects/kimi-app/WebKit/WebViewModel.swift" : {
+    "const-values" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/WebViewModel.swiftconstvalues",
+    "dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/WebViewModel.d",
+    "diagnostics" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/WebViewModel.dia",
+    "index-unit-output-path" : "/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/WebViewModel.o",
+    "llvm-bc" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/WebViewModel.bc",
+    "object" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/WebViewModel.o",
+    "swift-dependencies" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/WebViewModel.swiftdeps",
+    "swiftmodule" : "/Users/rmarchenko/Projects/kimi-app/build/Build/Intermediates.noindex/GeminiDesktop.build/Release/GeminiDesktop.build/Objects-normal/arm64/WebViewModel~partial.swiftmodule"
+  }
+}

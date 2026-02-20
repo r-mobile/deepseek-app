@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "74CBD8A92EED8FCB00F226E3"
-               BuildableName = "DeepSeek App.app"
+               BuildableName = "AiApp.app"
                BlueprintName = "GeminiDesktop"
                ReferencedContainer = "container:GeminiDesktop.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "74CBD8A92EED8FCB00F226E3"
-            BuildableName = "DeepSeek App.app"
+            BuildableName = "AiApp.app"
             BlueprintName = "GeminiDesktop"
             ReferencedContainer = "container:GeminiDesktop.xcodeproj">
          </BuildableReference>
@@ -69,7 +69,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "74CBD8A92EED8FCB00F226E3"
-            BuildableName = "DeepSeek App.app"
+            BuildableName = "AiApp.app"
             BlueprintName = "GeminiDesktop"
             ReferencedContainer = "container:GeminiDesktop.xcodeproj">
          </BuildableReference>

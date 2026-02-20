@@ -6,14 +6,13 @@
     {
       "layers" : [
         {
-          "glass" : false,
-          "image-name" : "DEBE4657-88F0-41F0-BE4D-CC0B8367AAE2.png",
-          "name" : "DEBE4657-88F0-41F0-BE4D-CC0B8367AAE2",
+          "image-name" : "Group 1.png",
+          "name" : "Group 1",
           "position" : {
-            "scale" : 1,
+            "scale" : 0.95,
             "translation-in-points" : [
-              11.3359375,
-              67.0625
+              15.200000000000045,
+              11.875
             ]
           }
         }

@@ -12,6 +12,33 @@ enum UserScripts {
 
     /// Message handler name for console log bridging
     static let consoleLogHandler = "consoleLog"
+    
+    // MARK: - Public Scripts for ChatBarPanel
+    
+    /// Returns true if in a conversation (not on start page)
+    static let checkConversationScript = """
+        (function() {
+            const scroller = document.querySelector('infinite-scroller[data-test-id="chat-history-container"]');
+            if (!scroller) { return false; }
+            const hasResponseContainer = scroller.querySelector('response-container') !== null;
+            const hasRatingButtons = scroller.querySelector('[aria-label="Good response"], [aria-label="Bad response"]') !== null;
+            return hasResponseContainer || hasRatingButtons;
+        })();
+        """
+    
+    /// JavaScript to focus the input field
+    static let focusInputScript = """
+        (function() {
+            const input = document.querySelector('rich-textarea[aria-label="Enter a prompt here"]') ||
+                          document.querySelector('[contenteditable="true"]') ||
+                          document.querySelector('textarea');
+            if (input) {
+                input.focus();
+                return true;
+            }
+            return false;
+        })();
+        """
 
     /// Creates all user scripts to be injected into the WebView
     static func createAllScripts() -> [WKUserScript] {

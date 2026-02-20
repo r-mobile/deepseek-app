@@ -1,8 +1,6 @@
 //
 //  AppCoordinator.swift
-//  GeminiDesktop
-//
-//  Created by alexcding on 2025-12-13.
+//  AIChat Desktop
 //
 
 import SwiftUI
@@ -11,23 +9,63 @@ import WebKit
 
 extension Notification.Name {
     static let openMainWindow = Notification.Name("openMainWindow")
+    static let providerChanged = Notification.Name("providerChanged")
 }
 
 @Observable
 class AppCoordinator {
+    // Singleton instance для всего приложения
+    static let shared = AppCoordinator()
+    
     private var chatBar: ChatBarPanel?
-    var webViewModel = WebViewModel()
+    var providerManager: AIProviderManager
+    var webViewModel: WebViewModel
 
     var openWindowAction: ((String) -> Void)?
 
     var canGoBack: Bool { webViewModel.canGoBack }
     var canGoForward: Bool { webViewModel.canGoForward }
+    var currentProvider: AIProvider { webViewModel.currentProvider }
+    var currentWebView: WKWebView { webViewModel.currentWebView }
 
     init() {
+        let manager = AIProviderManager()
+        self.providerManager = manager
+        self.webViewModel = WebViewModel(provider: manager.currentProvider)
+        
         // Observe notifications for window opening
         NotificationCenter.default.addObserver(forName: .openMainWindow, object: nil, queue: .main) { [weak self] _ in
             self?.openMainWindow()
         }
+        
+        // Sync provider changes between manager and webViewModel
+        manager.onProviderChanged = { [weak self] oldProvider, newProvider in
+            self?.webViewModel.switchToProvider(newProvider)
+            // Отправляем уведомление об изменении провайдера
+            NotificationCenter.default.post(name: .providerChanged, object: newProvider)
+        }
+        
+        // Observe visible providers changes
+        NotificationCenter.default.addObserver(forName: Notification.Name("VisibleProvidersChanged"), object: nil, queue: .main) { [weak self] _ in
+            self?.handleVisibleProvidersChanged()
+        }
+    }
+    
+    private func handleVisibleProvidersChanged() {
+        // Check if current provider is still visible
+        let manager = AIProviderManager()
+        if !manager.isProviderVisible(currentProvider) {
+            // Switch to first visible provider
+            if let firstVisible = manager.visibleProvidersList.first {
+                switchToProvider(firstVisible)
+            }
+        }
+    }
+
+    // MARK: - Provider Switching
+    
+    func switchToProvider(_ provider: AIProvider) {
+        providerManager.switchToProvider(provider)
     }
 
     // MARK: - Navigation
@@ -58,14 +96,8 @@ class AppCoordinator {
             return
         }
 
-        let contentView = ChatBarView(
-            webView: webViewModel.wkWebView,
-            onExpandToMain: { [weak self] in
-                self?.expandToMainWindow()
-            }
-        )
-        let hostingView = NSHostingView(rootView: contentView)
-        let bar = ChatBarPanel(contentView: hostingView)
+        // Create ChatBarPanel
+        let bar = ChatBarPanel()
 
         // Position at bottom center of the screen where mouse is located
         if let screen = NSScreen.screenAtMouseLocation() {
@@ -186,7 +218,7 @@ extension AppCoordinator {
     struct Constants {
         static let dockOffset: CGFloat = 50
         static let mainWindowIdentifier = "main"
-        static let mainWindowTitle = "DeepSeek App"
+        static let mainWindowTitle = "AI Chat App"
     }
 
 }
